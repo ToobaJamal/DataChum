@@ -1,10 +1,24 @@
 import { useState } from 'react'
 import * as dfd from "danfojs";
 import Describe from './components/Describe';
+import { Charts } from './components/Charts';
+import { Sidebar } from './components/Sidebar';
+import { Chart, CategoryScale, registerables } from "chart.js";
+import { Bar, Line } from "react-chartjs-2"
+
+Chart.register(CategoryScale);
+Chart.register(...registerables);
 
 export const Analysis = () => {
   const [dataComp, setDataComp] = useState([])
   const [showDescribe, setShowDescribe] = useState(false)
+  const [visualize, setVisualize] = useState(false)
+  const [showVisualization, setShowVisualization] = useState(false)
+  const [xAxis, setXAxis] = useState("")
+  const [yAxis, setYAxis] = useState("")
+  const [selectedCharts, setSelectedCharts] = useState([]);
+  const [charts, setCharts] = useState([])
+  
   const changeHandler = async function (event) {
     setShowDescribe(false)
     const url = URL.createObjectURL(event.target.files[0])
@@ -21,16 +35,22 @@ export const Analysis = () => {
     }
       
   return (
-    <main className="max-w-screen-xl mx-auto p-4">
-        <h1>Analysis</h1>
-        <form>
-          <input type="file" onChange={changeHandler}/>
-          <button className="border border-red-500">Submit</button>
-        </form>
-         
-        <section>
-          {dataComp.length > 0 && <Describe dataComp={dataComp} lastIndex={dataComp[0].df.values.length - 1} showDescribe={showDescribe} setShowDescribe={setShowDescribe}/>}   
-        </section>
-    </main>
+    <>
+      <main className="max-w-screen-xl mx-auto relative">
+          {visualize && <Sidebar selectedCharts={selectedCharts} setSelectedCharts={setSelectedCharts} setXAxis={setXAxis} xAxis={xAxis} yAxis={yAxis} setYAxis={setYAxis} setShowVisualization={setShowVisualization} setVisualize={setVisualize} dataComp={dataComp}/>}
+          <h1>Analysis</h1>
+          <form>
+            <input type="file" onChange={changeHandler}/>
+          </form>
+          
+            {dataComp.length > 0 && 
+            <section>
+              <Describe setVisualize={setVisualize} dataComp={dataComp} lastIndex={dataComp[0].df.values.length - 1} showDescribe={showDescribe} setShowDescribe={setShowDescribe}/>
+              {showVisualization && <Charts selectedCharts={selectedCharts} setSelectedCharts={setSelectedCharts} lastIndex={dataComp[0].df.values.length - 1} showVisualization={showVisualization} dataComp={dataComp} xAxis={xAxis} yAxis={yAxis}/>}
+            </section>}
+      </main>
+    </>
   )
 }
+
+
