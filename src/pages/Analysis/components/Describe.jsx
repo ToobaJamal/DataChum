@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
 
-export default function Describe({dataComp, lastIndex, showDescribe, setShowDescribe}) {
+export default function Describe({dataComp, lastIndex, showDescribe, setShowDescribe, setVisualize}) {
   
   const [describeData, setDescribeData] = useState(null)
-
+  
   useEffect(() => {
     if (showDescribe) {
       const cleanData = dataComp[0].df.drop({ index: [lastIndex] });
@@ -20,25 +20,27 @@ export default function Describe({dataComp, lastIndex, showDescribe, setShowDesc
   }, [dataComp, lastIndex, showDescribe]);
   return (
     <>
-      <button onClick={() => setShowDescribe(true)}>Describe</button>
+      <button onClick={() => setShowDescribe(true)}>Show Summary Statistics</button>
+      <button onClick={() => setVisualize(true)}>Visualize your data</button>
+      
       {showDescribe && describeData &&
       <div>
       
-      <table className="data-table">
-          <thead>
+      <table className="text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th>Metric</th>
+              <th scope="col" className="px-4 py-3">Metric</th>
               {describeData[0].columns.map((column, index) => (
-                <th key={index}>{column}</th>
+                <th key={index} scope="col" className="px-4 py-3">{column}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {describeData[0].index.map((rowLabel, rowIndex) => (
               <tr key={rowIndex}>
-                <td>{rowLabel}</td>
+                <td className="px-4 py-4">{rowLabel}</td>
                 {describeData[0].values[rowIndex].map((cellValue, cellIndex) => (
-                  <td key={cellIndex}>{cellValue}</td>
+                  <td key={cellIndex} className="px-4 py-4">{cellValue}</td>
                 ))}
               </tr>
             ))}
