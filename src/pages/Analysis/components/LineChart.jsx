@@ -14,6 +14,7 @@ export const LineChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
     labels: compVals.map(vals => vals[xIndex]),
     datasets: [
       {
+        label: `${compCols[xIndex]} vs ${compCols[yIndex]}`,
         data: compVals.map(vals => vals[yIndex]),
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
       },
@@ -40,7 +41,7 @@ export const LineChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
   }
   return (
     <>
-        <Line className="drag-handle" data={data}/>
+        <Line className="drag-handle" data={data} options={options}/>
     </>
   )
 }
