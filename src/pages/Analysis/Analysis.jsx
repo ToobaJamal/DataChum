@@ -5,6 +5,7 @@ import { Charts } from './components/Charts';
 import { Sidebar } from './components/Sidebar';
 import { Chart, CategoryScale, registerables } from "chart.js";
 import { Bar, Line } from "react-chartjs-2"
+import { AnalysisButtons } from './components/AnalysisButtons';
 
 Chart.register(CategoryScale);
 Chart.register(...registerables);
@@ -42,6 +43,7 @@ export const Analysis = () => {
           <form>
             <input type="file" onChange={changeHandler}/>
           </form>
+          {dataComp.length > 0 && <AnalysisButtons setShowDescribe={setShowDescribe} setVisualize={setVisualize} />}
           
             {dataComp.length > 0 && 
             <section>
