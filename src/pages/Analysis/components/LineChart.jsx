@@ -10,10 +10,12 @@ export const LineChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
   const compVals = cleanData.values
   const xIndex = compCols.indexOf(xInput)
   const yIndex = compCols.indexOf(yInput)
+  console.log(compCols[xIndex], compCols[yIndex])
   const data = {
     labels: compVals.map(vals => vals[xIndex]),
     datasets: [
       {
+        label: `${compCols[xIndex]} vs ${compCols[yIndex]}`,
         data: compVals.map(vals => vals[yIndex]),
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
       },
@@ -21,7 +23,7 @@ export const LineChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
   };
   return (
     <>
-        <Line data={data}/>
+        <Line className="drag-handle" data={data}/>
     </>
   )
 }
