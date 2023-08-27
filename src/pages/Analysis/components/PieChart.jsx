@@ -14,13 +14,19 @@ export const PieChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
     labels: compVals.map(vals => vals[xIndex]),
     datasets: [
       {
+        label: `${compCols[xIndex]} vs ${compCols[yIndex]}`,
         data: compVals.map(vals => vals[yIndex]),
       },
     ],
   };
+
+  const options= {
+    responsive: true,
+    maintainAspectRatio: true,
+  }
   return (
     <>
-        <Pie className="drag-handle" data={data}/>
+        <Pie className="drag-handle" data={data} options={options}/>
     </>
   )
 }
