@@ -10,7 +10,7 @@ export const LineChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
   const compVals = cleanData.values
   const xIndex = compCols.indexOf(xInput)
   const yIndex = compCols.indexOf(yInput)
-  console.log(compCols[xIndex], compCols[yIndex])
+
   const data = {
     labels: compVals.map(vals => vals[xIndex]),
     datasets: [
@@ -21,9 +21,28 @@ export const LineChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
       },
     ],
   };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: true,
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: `${compCols[xIndex]}`,
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: `${compCols[yIndex]}`,
+        },
+      },
+    },
+  }
   return (
     <>
-        <Line className="drag-handle" data={data}/>
+        <Line className="drag-handle" data={data} options={options}/>
     </>
   )
 }
