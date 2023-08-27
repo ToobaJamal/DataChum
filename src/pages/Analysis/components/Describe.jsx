@@ -19,14 +19,11 @@ export default function Describe({dataComp, lastIndex, showDescribe, setShowDesc
     }
   }, [dataComp, lastIndex, showDescribe]);
   return (
-    <>
-      <button onClick={() => setShowDescribe(true)}>Show Summary Statistics</button>
-      <button onClick={() => setVisualize(true)}>Visualize your data</button>
-      
+    <> 
       {showDescribe && describeData &&
-      <div>
+      <div className="resize overflow-auto inline-block">
       
-      <table className="text-sm text-left text-gray-500 dark:text-gray-400">
+      <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-4 py-3">Metric</th>
