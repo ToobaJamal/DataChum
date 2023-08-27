@@ -13,7 +13,7 @@ export const ScatterChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
     const data = {
         datasets: [
           {
-            label: 'A dataset',
+            label: `${compCols[xIndex]} vs ${compCols[yIndex]}`,
             data: compVals.map(vals => ({
                 x: vals[xIndex],
                 y: vals[yIndex],
@@ -22,10 +22,29 @@ export const ScatterChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
           },
         ],
       };
-    console.log(data)
+    
+      const options = {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: `${compCols[xIndex]}`,
+            },
+          },
+          y: {
+            title: {
+              display: true,
+              text: `${compCols[yIndex]}`,
+            },
+          },
+        },
+      }
+    
   return (
     <>
-        <Scatter data={data}/>
+        <Scatter data={data} options={options}/>
     </>
   )
 }
