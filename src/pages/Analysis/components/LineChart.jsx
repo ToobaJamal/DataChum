@@ -16,7 +16,7 @@ export const LineChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
       {
         label: `${compCols[xIndex]} vs ${compCols[yIndex]}`,
         data: compVals.map(vals => vals[yIndex]),
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   };

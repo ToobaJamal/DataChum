@@ -18,7 +18,7 @@ export const ScatterChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
                 x: vals[xIndex],
                 y: vals[yIndex],
               })),
-            backgroundColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: 'rgba(171, 4, 255, 1)',
           },
         ],
       };
