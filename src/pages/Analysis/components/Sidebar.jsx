@@ -24,10 +24,14 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
     }
 
     const handleChartSelect = (chartType) => {
-        setSelectedCharts([...selectedCharts, chartType]);
+        const newId = generateRandomId();
+        setSelectedCharts([...selectedCharts, {type: chartType, id: newId}]);
       };
 
-  
+      const generateRandomId = () => {
+        return Math.floor(Math.random() * 1000); // Adjust the range as needed
+      };
+  console.log(selectedCharts)
   return (
     <>
         <div id="drawer-navigation" className="absolute right-0 h-full overflow-y-auto top-15 z-40 w-64 p-4 bg-white dark:bg-gray-800" aria-labelledby="drawer-navigation-label">
@@ -67,7 +71,7 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
             { showPlot &&
             <div id="accordion-collapse-body-1" className="" aria-labelledby="accordion-collapse-heading-1">
                 <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900 flex flex-col">
-                    <button onClick={() => handleChartSelect("scatter")}>Scatter plot</button>
+                    <button onClick={() => handleChartSelect("scatter")} >Scatter plot</button>
                     <button onClick={() => handleChartSelect("line")}>Line Plot</button>
                     <button onClick={() => handleChartSelect("bar")}>Bar Chart</button>
                     <button onClick={() => handleChartSelect("histogram")}>Histogram</button>
