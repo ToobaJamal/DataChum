@@ -44,7 +44,7 @@ export const ScatterChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
     
   return (
     <>
-        <Scatter data={data} options={options}/>
+        <Scatter className="drag-handle" data={data} options={options}/>
     </>
   )
 }

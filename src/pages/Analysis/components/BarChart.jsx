@@ -44,7 +44,7 @@ const cleanData = dataComp[0].df.drop({ index: [lastIndex] });
   }
   return (
     <>
-        <Bar data={data} options={options}/>
+        <Bar className="drag-handle" data={data} options={options}/>
     </>
   )
 }
