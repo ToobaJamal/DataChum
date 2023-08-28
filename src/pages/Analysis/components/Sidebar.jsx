@@ -29,9 +29,9 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
       };
 
       const generateRandomId = () => {
-        return Math.floor(Math.random() * 1000); // Adjust the range as needed
+        return Math.floor(Math.random() * 1000); 
       };
-  console.log(selectedCharts)
+
   return (
     <>
         <div id="drawer-navigation" className="absolute right-0 h-full overflow-y-auto top-15 z-40 w-64 p-4 bg-white dark:bg-gray-800" aria-labelledby="drawer-navigation-label">
