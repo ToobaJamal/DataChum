@@ -40,7 +40,6 @@ export const Analysis = () => {
     <>
       <main className="max-w-screen-xl mx-auto">
           {visualize && <Sidebar selectedCharts={selectedCharts} setSelectedCharts={setSelectedCharts} setXAxis={setXAxis} xAxis={xAxis} yAxis={yAxis} setYAxis={setYAxis} setShowVisualization={setShowVisualization} setVisualize={setVisualize} dataComp={dataComp}/>}
-          <h1>Analysis</h1>
           <form>
             <input type="file" onChange={changeHandler}/>
           </form>
