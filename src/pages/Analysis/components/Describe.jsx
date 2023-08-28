@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Draggable from "react-draggable";
 
 
 export default function Describe({dataComp, lastIndex, showDescribe, setShowDescribe, setVisualize}) {
@@ -20,10 +21,11 @@ export default function Describe({dataComp, lastIndex, showDescribe, setShowDesc
   }, [dataComp, lastIndex, showDescribe]);
   return (
     <> 
+    
       {showDescribe && describeData &&
-      <div className="resize overflow-auto inline-block">
-      
-      <table className="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <Draggable>
+      <div className=" resize overflow-auto inline-block ">
+      <table className=" w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-4 py-3">Metric</th>
@@ -42,8 +44,11 @@ export default function Describe({dataComp, lastIndex, showDescribe, setShowDesc
               </tr>
             ))}
           </tbody>
-        </table>        
-      </div>}
+        </table>     
+        </div>   
+        </Draggable>
+        }
+  
     </>
     )
 }
