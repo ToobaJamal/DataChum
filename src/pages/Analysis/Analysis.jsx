@@ -41,7 +41,8 @@ export const Analysis = () => {
       <main className="max-w-screen-xl mx-auto">
           {visualize && <Sidebar selectedCharts={selectedCharts} setSelectedCharts={setSelectedCharts} setXAxis={setXAxis} xAxis={xAxis} yAxis={yAxis} setYAxis={setYAxis} setShowVisualization={setShowVisualization} setVisualize={setVisualize} dataComp={dataComp}/>}
           <form>
-            <input type="file" onChange={changeHandler}/>
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="file_input">Upload CSV file</label>
+            <input className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-500 file:text-white hover:file:bg-blue-600 cursor-pointer" id="file_input" type="file" onChange={changeHandler}/>
           </form>
           {dataComp.length > 0 && <AnalysisButtons setShowDescribe={setShowDescribe} setVisualize={setVisualize} />}
           
