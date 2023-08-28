@@ -6,6 +6,7 @@ import { Sidebar } from './components/Sidebar';
 import { Chart, CategoryScale, registerables } from "chart.js";
 import { Bar, Line } from "react-chartjs-2"
 import { AnalysisButtons } from './components/AnalysisButtons';
+import Draggable from 'react-draggable';
 
 Chart.register(CategoryScale);
 Chart.register(...registerables);
@@ -37,7 +38,7 @@ export const Analysis = () => {
       
   return (
     <>
-      <main className="max-w-screen-xl mx-auto relative">
+      <main className="max-w-screen-xl mx-auto">
           {visualize && <Sidebar selectedCharts={selectedCharts} setSelectedCharts={setSelectedCharts} setXAxis={setXAxis} xAxis={xAxis} yAxis={yAxis} setYAxis={setYAxis} setShowVisualization={setShowVisualization} setVisualize={setVisualize} dataComp={dataComp}/>}
           <h1>Analysis</h1>
           <form>
@@ -46,10 +47,11 @@ export const Analysis = () => {
           {dataComp.length > 0 && <AnalysisButtons setShowDescribe={setShowDescribe} setVisualize={setVisualize} />}
           
             {dataComp.length > 0 && 
-            <section>
+            <section className='h-auto'>
               <Describe setVisualize={setVisualize} dataComp={dataComp} lastIndex={dataComp[0].df.values.length - 1} showDescribe={showDescribe} setShowDescribe={setShowDescribe}/>
               {showVisualization && <Charts selectedCharts={selectedCharts} setSelectedCharts={setSelectedCharts} lastIndex={dataComp[0].df.values.length - 1} showVisualization={showVisualization} dataComp={dataComp} xAxis={xAxis} yAxis={yAxis}/>}
-            </section>}
+            </section>
+            }
       </main>
     </>
   )
