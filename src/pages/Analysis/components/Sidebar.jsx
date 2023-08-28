@@ -74,7 +74,6 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
                     <button onClick={() => handleChartSelect("scatter")} >Scatter plot</button>
                     <button onClick={() => handleChartSelect("line")}>Line Plot</button>
                     <button onClick={() => handleChartSelect("bar")}>Bar Chart</button>
-                    <button onClick={() => handleChartSelect("histogram")}>Histogram</button>
                     <button onClick={() => handleChartSelect("pie")}>Pie Chart</button>
                 </div>
             </div>}
