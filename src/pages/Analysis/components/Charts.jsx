@@ -31,7 +31,7 @@ export const Charts = ({dataComp, xAxis, yAxis, showVisualization, lastIndex, se
       
       {selectedCharts.map((chartType, index) => (
         <Draggable key={index} handle=".drag-handle" bounds="section">
-        <div key={index} className="resize overflow-hidden inline-block">
+        <div key={index} className="resize overflow-hidden block">
           {chartType === 'bar' && (
             <BarChart lastIndex={dataComp[0].df.values.length - 1} showVisualization={showVisualization} dataComp={dataComp} xAxis={xAxis} yAxis={yAxis} />
           )}
