@@ -50,14 +50,22 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
             </h2>
             { showCol &&
             <div id="accordion-collapse-body-1" className="" aria-labelledby="accordion-collapse-heading-1">
-                <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                <div className="p-2 ">
                     <form onSubmit={handleSubmit}>
-                        <label>X: </label>
-                        <input type="text" value={xAxis} onChange={(e) => {setXAxis(e.target.value)}}/>
+                        <div className="flex justify-between">
+                            <label>X: </label>
+                            <input className="w-11/12 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" value={xAxis} onChange={(e) => {setXAxis(e.target.value)}}/>
+                        </div>
                         <br/>
-                        <label>Y: </label>
-                        <input type="text" value={yAxis} onChange={(e) => {setYAxis(e.target.value)}}/>
-                        <button>Submit</button>
+                        <div className="flex justify-between">
+                            <label>Y: </label>
+                            <input className="w-11/12 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" value={yAxis} onChange={(e) => {setYAxis(e.target.value)}}/>
+                        </div>
+                        <div className="flex justify-center items-center mt-2">
+                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 rounded w-3/6">
+                                Submit
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>}
@@ -70,11 +78,11 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
             </h2>
             { showPlot &&
             <div id="accordion-collapse-body-1" className="" aria-labelledby="accordion-collapse-heading-1">
-                <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900 flex flex-col">
-                    <button onClick={() => handleChartSelect("scatter")} >Scatter plot</button>
-                    <button onClick={() => handleChartSelect("line")}>Line Plot</button>
-                    <button onClick={() => handleChartSelect("bar")}>Bar Chart</button>
-                    <button onClick={() => handleChartSelect("pie")}>Pie Chart</button>
+                <div className="p-5 flex flex-col justify-between">
+                    <button className="py-1" onClick={() => handleChartSelect("scatter")} >Scatter plot</button>
+                    <button className="py-1" onClick={() => handleChartSelect("line")}>Line Plot</button>
+                    <button className="py-1" onClick={() => handleChartSelect("bar")}>Bar Chart</button>
+                    <button className="py-1" onClick={() => handleChartSelect("pie")}>Pie Chart</button>
                 </div>
             </div>}
             </div>
