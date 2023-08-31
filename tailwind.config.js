@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
+
 export default {
   content: [
     "./index.html",
@@ -8,6 +10,7 @@ export default {
     extend: {
       colors:{
         'white': '#F9F6EE',
+        'background-white': '#FFFFFF'
     },
   },
   plugins: [],

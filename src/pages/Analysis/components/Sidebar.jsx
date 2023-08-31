@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataComp, setShowVisualization, selectedCharts, setSelectedCharts}) => {
+export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataComp, setShowVisualization, selectedCharts, setSelectedCharts, downloadImage}) => {
     const [showCol, setShowCol] = useState(false);
     const [showPlot, setShowPlot] = useState(false);
     const [xInput, setXInput] = useState("");
@@ -86,6 +86,9 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
                 </div>
             </div>}
             </div>
+            </div>
+            <div className="flex justify-center">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded" onClick={() => downloadImage()}>Download Image</button>
             </div>
         </div>
     </>
