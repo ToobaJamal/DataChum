@@ -88,7 +88,7 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
             </div>
             </div>
             <div className="flex justify-center">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded" onClick={() => downloadImage()}>Download Image</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded" onClick={() => downloadImage()}>Download as Report</button>
             </div>
         </div>
     </>
