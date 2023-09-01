@@ -1,10 +1,8 @@
 import { useState } from "react";
-
+import { ToastContainer, toast } from 'react-toastify';
 export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataComp, setShowVisualization, selectedCharts, setSelectedCharts, downloadImage}) => {
     const [showCol, setShowCol] = useState(false);
     const [showPlot, setShowPlot] = useState(false);
-    const [xInput, setXInput] = useState("");
-    const [yInput, setYInput] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -12,15 +10,14 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
         const xAxisExists = dataComp[0].columns.find(col => col === xAxis);
         const yAxisExists = dataComp[0].columns.find(col => col === yAxis);
 
-        if (!xAxisExists) {
-            console.log("No xaxis found");
-        } else if (!yAxisExists) {
-            console.log("No yaxis found");
-        } else {
-            console.log("Axes found");
+        if (!xAxisExists || !yAxisExists)  {
+            toast.error('Error: Please enter valid column name.', {
+                position: toast.POSITION.BOTTOM_RIGHT
+              });
+        } 
+        else {
+            setShowVisualization(true)
         }
-        
-        setShowVisualization(true)
     }
 
     const handleChartSelect = (chartType) => {
@@ -28,9 +25,9 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
         setSelectedCharts([...selectedCharts, {type: chartType, id: newId}]);
       };
 
-      const generateRandomId = () => {
-        return Math.floor(Math.random() * 1000); 
-      };
+    const generateRandomId = () => {
+    return Math.floor(Math.random() * 1000); 
+    };
 
   return (
     <>
