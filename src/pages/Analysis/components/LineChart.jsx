@@ -1,11 +1,8 @@
 import { Line } from "react-chartjs-2"
-import { useState } from "react"
 
-export const LineChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
-  const [xInput, setXInput] = useState(xAxis)
-  const [yInput, setYInput] = useState(yAxis)
-
-    const cleanData = dataComp[0].df.drop({ index: [lastIndex] });
+export const LineChart = ({dataComp, xAxis, yAxis, lastIndex, cleanData}) => {
+  const xInput = xAxis
+  const yInput = yAxis
   const compCols = cleanData.columns
   const compVals = cleanData.values
   const xIndex = compCols.indexOf(xInput)
@@ -23,7 +20,7 @@ export const LineChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         title: {

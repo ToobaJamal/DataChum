@@ -1,14 +1,8 @@
-
-import { Chart, CategoryScale, registerables } from "chart.js";
-import { useState } from "react";
 import { Bar } from "react-chartjs-2"
 
-Chart.register(CategoryScale);
-Chart.register(...registerables);
-export const BarChart = ({dataComp, xAxis, yAxis, lastIndex}) => {
-  const [xInput, setXInput] = useState(xAxis)
-  const [yInput, setYInput] = useState(yAxis)
-const cleanData = dataComp[0].df.drop({ index: [lastIndex] });
+export const BarChart = ({dataComp, xAxis, yAxis, lastIndex, cleanData}) => {
+  const xInput = xAxis
+  const yInput = yAxis
   const compCols = cleanData.columns
   const compVals = cleanData.values
   const xIndex = compCols.indexOf(xInput)
@@ -26,7 +20,7 @@ const cleanData = dataComp[0].df.drop({ index: [lastIndex] });
 
   const options = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         title: {

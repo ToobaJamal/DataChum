@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import Draggable from "react-draggable";
 
 
-export default function Describe({dataComp, lastIndex, showDescribe, setShowDescribe, setVisualize}) {
+export default function Describe({dataComp, showDescribe, setShowDescribe}) {
   
   const [describeData, setDescribeData] = useState(null)
-  
+  const lastIndex = dataComp[0].df.values.length - 1
   useEffect(() => {
     if (showDescribe) {
       const cleanData = dataComp[0].df.drop({ index: [lastIndex] });
