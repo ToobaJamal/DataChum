@@ -26,7 +26,6 @@ export default function Describe({dataComp, showDescribe, setShowDescribe}) {
   }
   return (
     <> 
-    
       {showDescribe && describeData &&
       <Draggable handle=".drag-handle">
       <div className="relative resize overflow-auto inline-block group">
@@ -58,8 +57,6 @@ export default function Describe({dataComp, showDescribe, setShowDescribe}) {
         </div>   
         </Draggable>
         }
-  
     </>
     )
 }
-

@@ -67,8 +67,6 @@ export const Charts = ({dataComp, xAxis, yAxis, showVisualization, selectedChart
         </div>
         </Draggable>
       ))} 
-        {/* {showVisualization && selectedChart === "bar" && <Bar data={data}/>}
-        {showVisualization && selectedChart === "line" && <Line data={data}/>} */}
     </>
   )
 }
