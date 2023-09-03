@@ -21,8 +21,15 @@ export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataCom
     }
 
     const handleChartSelect = (chartType) => {
-        const newId = generateRandomId();
-        setSelectedCharts([...selectedCharts, {type: chartType, id: newId}]);
+        if (xAxis === "" || yAxis === "") {
+            toast.error('Error: Please enter column names.', {
+                position: toast.POSITION.BOTTOM_RIGHT
+              });
+        }
+        else {
+            const newId = generateRandomId();
+            setSelectedCharts([...selectedCharts, {type: chartType, id: newId}]);
+        }
       };
 
     const generateRandomId = () => {
