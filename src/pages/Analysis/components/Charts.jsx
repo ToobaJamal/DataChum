@@ -22,7 +22,7 @@ export const Charts = ({dataComp, xAxis, yAxis, showVisualization, selectedChart
     <>
       {selectedCharts.map((chart) => (
         <Draggable key={chart.id} handle=".drag-handle" >
-        <div data-id={chart.id} className="resize z-0 overflow-hidden block relative group">
+        <div data-id={chart.id} className="resize z-0 overflow-hidden inline-block relative group">
           {chart.type === 'bar' && (
             <>
             <BarChart cleanData={cleanData} lastIndex={lastIndex} showVisualization={showVisualization} dataComp={dataComp} xAxis={xAxis} yAxis={yAxis} />
