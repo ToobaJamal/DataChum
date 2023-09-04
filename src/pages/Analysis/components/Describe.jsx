@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { toast } from 'react-toastify';
 import Draggable from "react-draggable";
 import { DeleteButton } from "./DeleteButton";
 
@@ -9,15 +10,21 @@ export default function Describe({dataComp, showDescribe, setShowDescribe}) {
   useEffect(() => {
     if (showDescribe) {
       const cleanData = dataComp[0].df.drop({ index: [lastIndex] });
-      const describeDf = cleanData.describe();
-      setDescribeData([
-        {
-          columns: describeDf.columns,
-          values: describeDf.values,
-          index: describeDf.index,
-        },
-      ]);
-    }
+      if (cleanData.dtypes.every(type => type === "string")) {
+        toast.error('Error: Dataset has no numeric column.', {
+          position: toast.POSITION.TOP_RIGHT
+        });
+      }else {
+        const describeDf = cleanData.describe();
+        setDescribeData([
+          {
+            columns: describeDf.columns,
+            values: describeDf.values,
+            index: describeDf.index,
+          },
+        ]);
+      }
+      }
   }, [dataComp, lastIndex, showDescribe]);
 
   function handleDeleteDescribe() {
