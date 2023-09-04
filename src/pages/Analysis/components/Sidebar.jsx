@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 export const Sidebar = ({setVisualize, xAxis, setXAxis, yAxis, setYAxis, dataComp, setShowVisualization, selectedCharts, setSelectedCharts, downloadImage}) => {
     const [showCol, setShowCol] = useState(false);
     const [showPlot, setShowPlot] = useState(false);
