@@ -26,6 +26,7 @@ export const Analysis = () => {
   const fileName = 'report.png';
   
   const changeHandler = async function (event) {
+    setDataComp([])
     const file = event.target.files[0];
     const fileExtension = file.name.split('.').pop().toLowerCase();
 

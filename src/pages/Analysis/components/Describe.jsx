@@ -7,15 +7,45 @@ export default function Describe({dataComp, showDescribe, setShowDescribe}) {
   
   const [describeData, setDescribeData] = useState(null)
   const lastIndex = dataComp[0].df.values.length - 1
+
+  const findMixedTypeColumns = (data) => {
+    const columns = data.columns;
+    const mixedTypeColumns = [];
+    console.log(columns)
+    for (const columnName of columns) {
+      if (columns.includes(columnName)) {
+        const values = data.values.map((row) => row[columns.indexOf(columnName)]);
+        if (values.some((value) => typeof value !== "number")) {
+          mixedTypeColumns.push(columnName);
+        }
+      }
+    }
+    return mixedTypeColumns;
+  };
+
+  function findNumericColumns(df) {
+    const mixedTypeColumns = findMixedTypeColumns(df)
+    let numericColumns = [];
+    for (const column of df.columns) {
+      if (!mixedTypeColumns.includes(column)) {
+        if (df.dtypes[df.columns.indexOf(column)] === "float32" || df.dtypes[df.columns.indexOf(column)] === "int") {
+          numericColumns.push(column);
+        }
+      }
+    }
+    return numericColumns;
+  }
+  
   useEffect(() => {
     if (showDescribe) {
       const cleanData = dataComp[0].df.drop({ index: [lastIndex] });
-      if (cleanData.dtypes.every(type => type === "string")) {
+      const numericColumns = findNumericColumns(cleanData);
+      if (numericColumns.length === 0) {
         toast.error('Error: Dataset has no numeric column.', {
           position: toast.POSITION.TOP_RIGHT
         });
       }else {
-        const describeDf = cleanData.describe();
+        const describeDf = cleanData.describe(numericColumns);
         setDescribeData([
           {
             columns: describeDf.columns,
