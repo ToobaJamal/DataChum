@@ -1,6 +1,6 @@
 # No code Data Analysis App
 
-This is a no-code data analysis website built in React. The users can upload their dataset and perform analysis including summary statistics and a variety of data visualisation options. Users also have an option of downloading their analysis as an image on their machine.
+This is a no-code data analysis website built in React. The users can upload their dataset and perform analysis including summary statistics and a variety of data visualisation options. Users also have the option of downloading their analysis as an image on their machine.
 
 ## Table of Contents
 
@@ -34,7 +34,8 @@ npm run dev
 ## Usage
 
 1. Click on the "Choose file" button and upload your dataset in CSV format
-   - Make sure your dataset has at least one numeric column 
+   - The CSV file should have at least one numeric column
+   - The first row of the CSV file should represent headers
 2. Click on "Summary Statistics" button to generate Summary Statistics of the dataset
 3. Click on the "Visualize Data" button to open up the sidebar
 4. Enter the column names that you like to be x-axis and y-axis in X and Y input fields respectively and click "Submit"
