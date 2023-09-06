@@ -34,7 +34,7 @@ npm run dev
 ## Usage
 
 1. Click on the "Choose file" button and upload your dataset in CSV format
-   - The CSV file should have at least one numeric column
+   - The CSV file should have at least one numeric column to generate desired results
    - The first row of the CSV file should represent headers
 2. Click on "Summary Statistics" button to generate Summary Statistics of the dataset
 3. Click on the "Visualize Data" button to open up the sidebar
