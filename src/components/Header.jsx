@@ -21,7 +21,7 @@ export const Header = () => {
         <div className="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
         <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent">
             <li>
-            <a href="https://github.com/ToobaJamal/DataChum#usage" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Docs</a>
+            <a href="https://github.com/ToobaJamal/DataChum#usage" target="_blank" rel="noopener noreferrer" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Docs</a>
             </li>
             <li>
             <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Contact</a>
@@ -33,7 +33,7 @@ export const Header = () => {
         <div className="w-full block" id="navbar-solid-bg">
           <ul className="flex flex-col font-medium justify-center items-center gap-[10%] mt-4">
               <li>
-              <a href="https://github.com/ToobaJamal/DataChum#usage" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100">Docs</a>
+              <a href="https://github.com/ToobaJamal/DataChum#usage" target="_blank" rel="noopener noreferrer" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100">Docs</a>
               </li>
               <li>
               <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100">Contact</a>
