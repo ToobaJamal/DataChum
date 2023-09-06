@@ -27,21 +27,44 @@ npm run dev
 
 ## Features
 1. User friendly interface 
-2. Summary statistics and variety of charts to choose from
+2. Summary statistics and a variety of charts to choose from
 3. Download analysis as image functionality
-4. Resize and drag functionality for user preferred analysis aesthetic
+4. Resize and drag functionality for user-preferred analysis aesthetic
 
 ## Usage
-
 1. Click on the "Choose file" button and upload your dataset in CSV format
-   - The CSV file should have at least one numeric column to generate desired results
-   - The first row of the CSV file should represent headers
-2. Click on "Summary Statistics" button to generate Summary Statistics of the dataset
+2. Click on the "Summary Statistics" button to generate Summary Statistics of the dataset
 3. Click on the "Visualize Data" button to open up the sidebar
-4. Enter the column names that you like to be x-axis and y-axis in X and Y input fields respectively and click "Submit"
+4. Enter the column names that you like to be x-axis and y-axis in the X and Y input fields respectively and click "Submit"
 5. Click on Plot and select a suitable option for your entered axes
 6. Generate as many charts as you'd like, drag them around as you like, and resize as per your preference
-7. Click on "Download as Report" button to download your analysis as an image
+7. Click on the "Download as Image" button to download your analysis as an image
+
+https://github.com/ToobaJamal/DataChum/assets/52610124/839345fa-2aed-4eaf-ba5c-bd91a0b1f55f
+
+### Dataset Format Requirements
+To ensure the smooth functioning of the app, please follow these guidelines when preparing and uploading your dataset in CSV format.
+
+#### File Format
+
+- **File Type**: CSV (Comma-Separated Values)
+- **File Extension**: .csv
+
+#### Headers
+- The first row of the CSV file should represent headers, providing a clear and concise description of each column's content.
+
+#### Numeric Column
+- The CSV file must contain at least one numeric column. This column should consist of numerical data (e.g., integers or floating-point numbers) to generate the desired results.
+
+#### Example:
+```csv
+Name,Age,Height,Weight,Income
+Alice,25,165,55,50000
+Bob,30,180,75,60000
+Carol,28,155,50,55000
+```
+A real-world dataset example is the Happiness and Alcohol Consumption data. [Download the dataset](https://www.kaggle.com/datasets/marcospessotto/happiness-and-alcohol-consumption?resource=download) from here.
+
 
 ## Tech Stack
 - [React](https://reactjs.org/)
