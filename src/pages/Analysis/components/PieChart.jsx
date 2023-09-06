@@ -1,8 +1,9 @@
+import { useState } from "react"
 import { Pie } from "react-chartjs-2"
 
 export const PieChart = ({dataComp, xAxis, yAxis, lastIndex, cleanData}) => {
-  const xInput = xAxis
-  const yInput = yAxis
+  const [xInput, setXInput] = useState(xAxis)
+  const [yInput, setYInput] = useState(yAxis)
   const compCols = cleanData.columns
   const compVals = cleanData.values
   const xIndex = compCols.indexOf(xInput)
