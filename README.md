@@ -69,3 +69,6 @@ A real-world dataset example is the Happiness and Alcohol Consumption data. [Dow
 ## Tech Stack
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+
+## License
+This project is licensed under the [MIT License](https://opensource.org/license/mit/).
