@@ -24,7 +24,7 @@ export const Header = () => {
             <a href="https://github.com/ToobaJamal/DataChum#usage" target="_blank" rel="noopener noreferrer" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Docs</a>
             </li>
             <li>
-            <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Contact</a>
+            <Link to={"/login-signup"} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Login</Link>
             </li>
         </ul>
         </div>
@@ -36,7 +36,7 @@ export const Header = () => {
               <a href="https://github.com/ToobaJamal/DataChum#usage" target="_blank" rel="noopener noreferrer" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100">Docs</a>
               </li>
               <li>
-              <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100">Contact</a>
+              <Link to={"/login-signup"} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100">Login</Link>
               </li>
           </ul>
         </div>}
